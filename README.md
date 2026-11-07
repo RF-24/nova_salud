@@ -1,7 +1,6 @@
-
 # Nova Salud
 
-Sistema de gestión de inventario y ventas para una farmacia, desarrollado como proyecto académico Fullstack.
+Sistema de gestión de inventario y ventas para una farmacia, desarrollado como proyecto académico Fullstack de SENATI.
 
 ## Tecnologías utilizadas
 
@@ -22,71 +21,73 @@ Sistema de gestión de inventario y ventas para una farmacia, desarrollado como 
 
 ## Requisitos
 
-- Node.js y npm.
+- Node.js y npm instalados.
 - MongoDB instalado y funcionando.
+- MongoDB Compass para importar la base de datos.
+- Carpeta `BD NOVA` proporcionada junto con el proyecto.
 
+## Instalación del proyecto
 
-## Instalación del backend
+1. Descargar el repositorio desde GitHub:
 
-1. Descargar el proyecto desde GitHub.
-2. Tener Node.js y MongoDB instalados y funcionando.
-3. Abrir una terminal dentro de la carpeta `backend`.
-4. Instalar las dependencias:
+https://github.com/RF-24/nova_salud
+
+2. Abrir el proyecto en Visual Studio Code.
+
+3. Abrir una terminal dentro de la carpeta `backend` e instalar las dependencias:
 
 ```bash
 npm install
 ```
 
-5. Copiar el archivo `.env.example` y crear una copia llamada `.env` dentro de la misma carpeta `backend`.
+4. Copiar el archivo `.env.example` y crear un archivo llamado `.env` dentro de la carpeta `backend`.
 
-6. Abrir `.env` y configurar:
+5. Configurar el archivo `.env` con los siguientes valores:
 
-- `MONGO_URI`: conexión a MongoDB.
-- `JWT_SECRET`: reemplazar el valor de ejemplo por una clave secreta aleatoria de mínimo 32 caracteres.
-- `PORT`: puerto del backend, normalmente 3000.
-
-7. Crear la cuenta de administrador:
-
-```bash
-node scripts/crearAdmin.js
+```env
+MONGO_URI=mongodb://127.0.0.1:27017/nova_salud
+JWT_SECRET=reemplazar_por_una_clave_aleatoria_de_32_caracteres_o_mas
+PORT=3000
 ```
 
-El programa solicitará nombre, correo electrónico válido y una contraseña de mínimo 12 caracteres.
+La clave `JWT_SECRET` debe reemplazarse por una clave aleatoria y segura de al menos 32 caracteres.
 
-Este paso se realiza una sola vez, cuando todavía no hay usuarios registrados en la base de datos.
+## Importación de la base de datos
 
-8. Iniciar el backend:
+La carpeta `BD NOVA` contiene los archivos exportados de MongoDB:
+
+- `nova_salud.medicamentos.json`: medicamentos registrados.
+- `nova_salud.usuarios.json`: cuenta de administrador.
+- `nova_salud.ventas.json`: historial de ventas.
+
+Para importar los datos:
+
+1. Abrir MongoDB Compass y conectarse al servidor local.
+2. Crear una base de datos llamada `nova_salud` con una colección llamada `medicamentos`.
+3. Crear las otras dos colecciones: `usuarios` y `ventas`.
+4. Ingresar a la colección `medicamentos` y seleccionar la opción de importar datos.
+5. Elegir el archivo `nova_salud.medicamentos.json` y el formato JSON.
+6. Repetir el procedimiento con los archivos de `usuarios` y `ventas`, importando cada uno en su colección correspondiente.
+
+La importación debe conservar los identificadores originales de los documentos.
+
+Los archivos deben importarse en una base de datos vacía para evitar documentos duplicados.
+
+## Ejecución del backend
+
+Abrir una terminal dentro de la carpeta `backend` y ejecutar:
 
 ```bash
 npm start
 ```
 
-Si todo funciona correctamente, el servidor estará disponible en:
+El servidor estará disponible en:
 
 http://127.0.0.1:3000
 
-```bash
-npm install
-```
+## Ejecución del frontend
 
-Crear el archivo `.env` con las variables necesarias para la conexión a MongoDB y la clave JWT.
-
-Ejemplo de configuración:
-
-```env
-MONGO_URI=mongodb://127.0.0.1:27017/nova_salud
-JWT_SECRET=colocar_una_clave_secreta_segura
-```
-
-Los nombres de las variables deben coincidir con los utilizados en `server.js` y las rutas de autenticación.
-
-Crear un usuario administrador usando el script incluido en `backend/scripts/crearAdmin.js`.
-
-Iniciar el servidor con el comando configurado en `backend/package.json`.
-
-## Instalación del frontend
-
-Abrir otra terminal en la carpeta frontend:
+Abrir otra terminal dentro de la carpeta `frontend` y ejecutar:
 
 ```bash
 npm install
@@ -97,42 +98,15 @@ Abrir en el navegador:
 
 http://localhost:5173
 
-El backend utiliza el puerto 3000.
-
+El backend debe permanecer encendido mientras se utiliza el sistema.
 
 ## Acceso al sistema
 
-Para ingresar a Nova Salud por primera vez, se debe crear una cuenta de administrador.
+Para ingresar a Nova Salud se utiliza la cuenta de administrador incluida en el respaldo de la base de datos.
 
-1. Tener MongoDB instalado y funcionando.
-2. Configurar el archivo `.env` dentro de la carpeta `backend`, tomando como referencia `.env.example`.
-3. Abrir una terminal dentro de la carpeta `backend`.
-4. Ejecutar el siguiente comando:
+El correo y la contraseña de demostración se proporcionan de manera privada junto con los archivos de la base de datos.
 
-```bash
-node scripts/crearAdmin.js
-```
-
-5. El programa solicitará los siguientes datos:
-   - Nombre del administrador.
-   - Correo electrónico válido.
-   - Contraseña de mínimo 12 caracteres.
-
-6. Una vez creado el administrador, iniciar el backend:
-
-```bash
-npm start
-```
-
-7. Iniciar el frontend desde otra terminal, dentro de la carpeta `frontend`:
-
-```bash
-npm run dev
-```
-
-8. Abrir http://localhost:5173 e iniciar sesión con el correo y contraseña registrados.
-
-Nota: El administrador se crea solamente si todavía no existen usuarios en la base de datos. No es necesario ejecutar nuevamente el script después de crear la cuenta.
+No es necesario crear un administrador nuevo si la colección `usuarios` se importó correctamente.
 
 ## Autor
 
