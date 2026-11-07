@@ -1,0 +1,21 @@
+# Dependencias
+node_modules/
+**/node_modules/
+
+# Variables privadas
+.env
+.env.*
+!.env.example
+
+# Archivos generados
+dist/
+build/
+coverage/
+
+# Archivos temporales
+*.log
+.DS_Store
+Thumbs.db
+
+# Configuración local
+.vscode/

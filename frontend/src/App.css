@@ -1,0 +1,448 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7f5;
+  color: #182b25;
+}
+
+/* ESTRUCTURA PRINCIPAL */
+
+.aplicacion {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* MENÚ LATERAL */
+
+.menu {
+  width: 235px;
+  flex-shrink: 0;
+  background: #176b51;
+  color: white;
+  padding: 25px 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu h2 {
+  font-size: 23px;
+  margin: 0;
+}
+
+.menu p {
+  font-size: 13px;
+  color: #d0e9dc;
+}
+
+.menu nav {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu nav a {
+  color: white;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 7px;
+  font-size: 14px;
+}
+
+.menu nav a:hover {
+  background: #278663;
+}
+
+.menu-pie {
+  margin-top: auto;
+  padding-top: 25px;
+  font-size: 12px;
+  color: #d0e9dc;
+}
+
+/* CONTENIDO */
+
+.contenido {
+  flex: 1;
+  padding: 30px;
+  min-width: 0;
+}
+
+/* ENCABEZADO */
+
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.encabezado h1 {
+  font-size: 27px;
+  margin: 0;
+}
+
+.encabezado p {
+  color: #777;
+}
+
+.usuario {
+  background: white;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+/* ESTADÍSTICAS */
+
+.estadisticas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.tarjeta,
+.panel {
+  background: white;
+  border: 1px solid #e2e7e4;
+  border-radius: 10px;
+  padding: 22px;
+}
+
+.tarjeta span {
+  color: #666;
+}
+
+.tarjeta h2 {
+  font-size: 32px;
+  margin: 10px 0;
+  color: #176b51;
+}
+
+.tarjeta p {
+  font-size: 13px;
+  color: #888;
+}
+
+.alerta h2 {
+  color: #dc8230;
+}
+
+/* PANELES */
+
+.panel {
+  margin-bottom: 25px;
+}
+
+.panel h2 {
+  font-size: 20px;
+  margin-top: 0;
+}
+
+/* FORMULARIOS */
+
+.formulario {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.formulario label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 14px;
+}
+
+input,
+select {
+  padding: 11px;
+  border: 1px solid #ccd5cf;
+  border-radius: 6px;
+  font: inherit;
+  width: 100%;
+  background: white;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #19865d;
+  outline-offset: 1px;
+}
+
+.acciones-formulario {
+  display: flex;
+  align-items: end;
+  gap: 10px;
+}
+
+button {
+  border: none;
+  padding: 11px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font: inherit;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.acciones-formulario button {
+  background: #19865d;
+  color: white;
+}
+
+.acciones-formulario button:hover {
+  background: #146b4b;
+}
+
+.acciones-formulario .secundario {
+  background: #ddd;
+  color: #333;
+}
+
+/* INVENTARIO */
+
+.titulo-tabla {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.titulo-tabla input {
+  max-width: 260px;
+}
+
+.tabla-contenedor {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 18px;
+}
+
+th,
+td {
+  padding: 13px;
+  text-align: left;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 14px;
+}
+
+th {
+  background: #f0f6f2;
+}
+
+.estado {
+  padding: 6px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+}
+
+.disponible {
+  background: #d9f3e4;
+  color: #167345;
+}
+
+.bajo {
+  background: #fff0d7;
+  color: #a75c13;
+}
+
+.editar {
+  background: #e0edff;
+  color: #235aa1;
+  margin-right: 6px;
+}
+
+.editar:hover {
+  background: #c9dfff;
+}
+
+.eliminar {
+  background: #ffe3e3;
+  color: #bd3333;
+}
+
+.eliminar:hover {
+  background: #ffd0d0;
+}
+
+.sin-datos {
+  text-align: center;
+  color: #777;
+  padding: 25px;
+}
+
+.mensaje {
+  background: #e5f3eb;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+/* PANTALLA DE INICIO DE SESIÓN */
+
+.login-fondo {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #edf3ef;
+  padding: 20px;
+}
+
+.login-caja {
+  background: white;
+  padding: 35px;
+  width: 360px;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px #00000015;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login-caja h1 {
+  color: #176b50;
+  text-align: center;
+  margin: 0;
+  font-size: 28px;
+}
+
+.login-caja p {
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+}
+
+.login-caja h2 {
+  margin-top: 15px;
+  margin-bottom: 8px;
+  font-size: 21px;
+}
+
+.login-caja label {
+  font-size: 14px;
+}
+
+.login-caja input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.login-caja button {
+  background: #18845f;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.login-caja button:hover {
+  background: #126b4c;
+}
+
+.login-caja button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.login-caja .login-error {
+  color: #c62828;
+  background: #ffebee;
+  border-radius: 6px;
+  padding: 10px;
+  text-align: left;
+  font-size: 13px;
+}
+
+/* BOTÓN CERRAR SESIÓN */
+
+.cerrar-sesion {
+  background: #dc3545;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 6px;
+}
+
+.cerrar-sesion:hover {
+  background: #b52a38;
+}
+
+/* DISEÑO RESPONSIVE */
+
+@media (max-width: 850px) {
+  .aplicacion {
+    flex-direction: column;
+  }
+
+  .menu {
+    width: 100%;
+  }
+
+  .menu nav {
+    margin-top: 12px;
+  }
+
+  .contenido {
+    padding: 15px;
+  }
+
+  .estadisticas,
+  .formulario {
+    grid-template-columns: 1fr;
+  }
+
+  .encabezado,
+  .titulo-tabla {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .titulo-tabla input {
+    max-width: 100%;
+  }
+
+  .acciones-formulario {
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-caja {
+    padding: 25px 20px;
+  }
+
+  .encabezado h1 {
+    font-size: 23px;
+  }
+
+  .tarjeta,
+  .panel {
+    padding: 16px;
+  }
+
+  th,
+  td {
+    padding: 10px;
+    font-size: 13px;
+  }
+}
