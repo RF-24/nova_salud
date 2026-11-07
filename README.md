@@ -25,9 +25,45 @@ Sistema de gestión de inventario y ventas para una farmacia, desarrollado como 
 - Node.js y npm.
 - MongoDB instalado y funcionando.
 
+
 ## Instalación del backend
 
-Abrir una terminal en la carpeta backend:
+1. Descargar el proyecto desde GitHub.
+2. Tener Node.js y MongoDB instalados y funcionando.
+3. Abrir una terminal dentro de la carpeta `backend`.
+4. Instalar las dependencias:
+
+```bash
+npm install
+```
+
+5. Copiar el archivo `.env.example` y crear una copia llamada `.env` dentro de la misma carpeta `backend`.
+
+6. Abrir `.env` y configurar:
+
+- `MONGO_URI`: conexión a MongoDB.
+- `JWT_SECRET`: reemplazar el valor de ejemplo por una clave secreta aleatoria de mínimo 32 caracteres.
+- `PORT`: puerto del backend, normalmente 3000.
+
+7. Crear la cuenta de administrador:
+
+```bash
+node scripts/crearAdmin.js
+```
+
+El programa solicitará nombre, correo electrónico válido y una contraseña de mínimo 12 caracteres.
+
+Este paso se realiza una sola vez, cuando todavía no hay usuarios registrados en la base de datos.
+
+8. Iniciar el backend:
+
+```bash
+npm start
+```
+
+Si todo funciona correctamente, el servidor estará disponible en:
+
+http://127.0.0.1:3000
 
 ```bash
 npm install
