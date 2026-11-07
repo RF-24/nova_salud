@@ -63,11 +63,40 @@ http://localhost:5173
 
 El backend utiliza el puerto 3000.
 
+
 ## Acceso al sistema
 
-Para ingresar, primero se debe crear un usuario administrador en la base de datos MongoDB.
+Para ingresar a Nova Salud por primera vez, se debe crear una cuenta de administrador.
 
-La pantalla de inicio de sesión solicita un correo y una contraseña válidos.
+1. Tener MongoDB instalado y funcionando.
+2. Configurar el archivo `.env` dentro de la carpeta `backend`, tomando como referencia `.env.example`.
+3. Abrir una terminal dentro de la carpeta `backend`.
+4. Ejecutar el siguiente comando:
+
+```bash
+node scripts/crearAdmin.js
+```
+
+5. El programa solicitará los siguientes datos:
+   - Nombre del administrador.
+   - Correo electrónico válido.
+   - Contraseña de mínimo 12 caracteres.
+
+6. Una vez creado el administrador, iniciar el backend:
+
+```bash
+npm start
+```
+
+7. Iniciar el frontend desde otra terminal, dentro de la carpeta `frontend`:
+
+```bash
+npm run dev
+```
+
+8. Abrir http://localhost:5173 e iniciar sesión con el correo y contraseña registrados.
+
+Nota: El administrador se crea solamente si todavía no existen usuarios en la base de datos. No es necesario ejecutar nuevamente el script después de crear la cuenta.
 
 ## Autor
 
